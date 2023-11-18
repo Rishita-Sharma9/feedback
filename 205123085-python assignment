@@ -1,0 +1,1334 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO1z1sopc6hJad2/HDzB1uw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Rishita-Sharma9/feedback/blob/main/205123085-python%20assignment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "**Problem-1**"
+      ],
+      "metadata": {
+        "id": "xBFtDbvdQJz9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2IWq8ogDNQXr",
+        "outputId": "faacb7ab-93da-4bda-ac8a-939f5edaf685"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the name of a country: france\n",
+            "The national sport of france is: Football (Soccer)\n"
+          ]
+        }
+      ],
+      "source": [
+        "national_sports = {\n",
+        "    \"United States\": \"American Football\",\n",
+        "    \"Canada\": \"Ice Hockey\",\n",
+        "    \"Brazil\": \"Football (Soccer)\",\n",
+        "    \"India\": \"Field Hockey\",\n",
+        "    \"Australia\": \"Australian Rules Football\",\n",
+        "    \"China\": \"Table Tennis\",\n",
+        "    \"France\": \"Football (Soccer)\",\n",
+        "    \"Germany\": \"Football (Soccer)\",\n",
+        "\n",
+        "}\n",
+        "\n",
+        "def get_national_sport(country):\n",
+        "    country = country.title()\n",
+        "\n",
+        "\n",
+        "    if country in national_sports:\n",
+        "        return national_sports[country]\n",
+        "    else:\n",
+        "        return \"National sport information not available for {}\".format(country)\n",
+        "\n",
+        "def main():\n",
+        "    country_input = input(\"Enter the name of a country: \")\n",
+        "\n",
+        "    result = get_national_sport(country_input)\n",
+        "\n",
+        "    print(\"The national sport of {} is: {}\".format(country_input, result))\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   ***Problem-2***"
+      ],
+      "metadata": {
+        "id": "a2dtKQHAQa-h"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_final_salary(name, salary, leaves_taken):\n",
+        "    leave_deduction = 1000\n",
+        "\n",
+        "    final_salary = salary - (leaves_taken * leave_deduction)\n",
+        "\n",
+        "    employee_info = {\n",
+        "        \"Name\": name,\n",
+        "        \"Initial Salary\": salary,\n",
+        "        \"Leaves Taken\": leaves_taken,\n",
+        "        \"Final Salary\": final_salary\n",
+        "    }\n",
+        "\n",
+        "    return employee_info\n",
+        "\n",
+        "def main():\n",
+        "    name = input(\"Enter the name of the employee: \")\n",
+        "    salary = float(input(\"Enter the salary of the employee: \"))\n",
+        "    leaves_taken = int(input(\"Enter the number of leaves taken by the employee: \"))\n",
+        "\n",
+        "\n",
+        "    employee_info = calculate_final_salary(name, salary, leaves_taken)\n",
+        "\n",
+        "    print(\"\\nEmployee Information:\")\n",
+        "    for key, value in employee_info.items():\n",
+        "        print(f\"{key}: {value}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JeDHo_hdQFmQ",
+        "outputId": "bbb45138-01ea-42a4-e857-803e3b5888fa"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the name of the employee: 2\n",
+            "Enter the salary of the employee: 200\n",
+            "Enter the number of leaves taken by the employee: 1\n",
+            "\n",
+            "Employee Information:\n",
+            "Name: 2\n",
+            "Initial Salary: 200.0\n",
+            "Leaves Taken: 1\n",
+            "Final Salary: -800.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   ***"
+      ],
+      "metadata": {
+        "id": "7PA43jJrUQTB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "***Problem-3***"
+      ],
+      "metadata": {
+        "id": "hVmoeFbtV5bO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "song_original_scales = {\n",
+        "    \"Song1\": \"C Major\",\n",
+        "    \"Song2\": \"G Major\",\n",
+        "    \"Song3\": \"D Minor\",\n",
+        "}\n",
+        "\n",
+        "def check_original_scale(song, original_scale):\n",
+        "    song = song.title()\n",
+        "\n",
+        "    if song in song_original_scales and song_original_scales[song] == original_scale:\n",
+        "        return True\n",
+        "    else:\n",
+        "        return False\n",
+        "\n",
+        "def main():\n",
+        "    song_name = input(\"Enter the name of the song: \")\n",
+        "    original_scale = input(\"Enter the original scale of the song: \")\n",
+        "\n",
+        "    is_correct = check_original_scale(song_name, original_scale)\n",
+        "\n",
+        "    if is_correct:\n",
+        "        print(f\"The original scale of {song_name} is correct.\")\n",
+        "    else:\n",
+        "        print(f\"Sorry, the original scale of {song_name} is incorrect or not available in the dictionary.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "huftlLCVVQnu",
+        "outputId": "403abe0d-6205-46f6-f13d-78fab45f9897"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the name of the song: D minor\n",
+            "Enter the original scale of the song: 13\n",
+            "Sorry, the original scale of D minor is incorrect or not available in the dictionary.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  ***Problem-4***"
+      ],
+      "metadata": {
+        "id": "JpShKhgqVwER"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "\n",
+        "def extract_dates_from_paragraph(paragraph):\n",
+        "    date_pattern = r'\\b\\d{4}-\\d{2}-\\d{2}\\b'\n",
+        "\n",
+        "    dates_found = re.findall(date_pattern, paragraph)\n",
+        "\n",
+        "    return dates_found\n",
+        "\n",
+        "def main():\n",
+        "    paragraph = input(\"Enter a paragraph: \")\n",
+        "\n",
+        "    dates_found = extract_dates_from_paragraph(paragraph)\n",
+        "\n",
+        "    if dates_found:\n",
+        "        print(\"Dates found in the paragraph:\")\n",
+        "        for date in dates_found:\n",
+        "            print(date)\n",
+        "    else:\n",
+        "        print(\"No dates found in the paragraph.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iE4-mlV6WXYc",
+        "outputId": "d8d12e8c-eabe-40de-b03e-207dfa1940af"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a paragraph: she  is 2002-12-5\n",
+            "No dates found in the paragraph.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   ***Problem-5***"
+      ],
+      "metadata": {
+        "id": "h0cqVvUWXBvE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "stock = {\n",
+        "    \"item1\": 10,\n",
+        "    \"item2\": 5,\n",
+        "    \"item3\": 8,\n",
+        "}\n",
+        "\n",
+        "def check_stock(item, quantity):\n",
+        "    item = item.lower()\n",
+        "\n",
+        "    if item in stock and stock[item] >= quantity:\n",
+        "        print(f\"{quantity} {item}(s) are available in stock.\")\n",
+        "        stock[item] -= quantity\n",
+        "        print(f\"Updated stock for {item}: {stock[item]} {item}(s) remaining.\")\n",
+        "    elif item in stock and stock[item] < quantity:\n",
+        "        print(f\"Sorry, only {stock[item]} {item}(s) are available in stock.\")\n",
+        "    else:\n",
+        "        print(f\"Sorry, {item} is not available in the stock.\")\n",
+        "\n",
+        "def main():\n",
+        "    item_name = input(\"Enter the name of the item: \")\n",
+        "    item_quantity = int(input(\"Enter the quantity needed: \"))\n",
+        "\n",
+        "    check_stock(item_name, item_quantity)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6T9kmtlVXJkS",
+        "outputId": "b06ceaf4-5e2e-4dec-f318-4aff3e7cbd3d"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the name of the item: item2\n",
+            "Enter the quantity needed: 12\n",
+            "Sorry, only 5 item2(s) are available in stock.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-6**"
+      ],
+      "metadata": {
+        "id": "2LvM9dM4ZU2X"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def check_input_type(item_list, item_type):\n",
+        "    for item in item_list:\n",
+        "        if not isinstance(item, item_type):\n",
+        "            return False\n",
+        "    return True\n",
+        "\n",
+        "def get_cracker_price(cracker_names, cracker_prices, cracker_name):\n",
+        "    cracker_name = cracker_name.title()\n",
+        "\n",
+        "    if cracker_name in cracker_names:\n",
+        "        index = cracker_names.index(cracker_name)\n",
+        "        return cracker_prices[index]\n",
+        "    else:\n",
+        "        return None\n",
+        "\n",
+        "def main():\n",
+        "    crackers = input(\"Enter the names of crackers (comma-separated): \").split(',')\n",
+        "\n",
+        "    if not check_input_type(crackers, str):\n",
+        "        print(\"Error: The input for the names of crackers should be strings only.\")\n",
+        "        return\n",
+        "\n",
+        "    prices = input(\"Enter the prices of crackers (comma-separated): \").split(',')\n",
+        "\n",
+        "    try:\n",
+        "        prices = [float(price) for price in prices]\n",
+        "    except ValueError:\n",
+        "        print(\"Error: The input for the prices of crackers should be numbers only.\")\n",
+        "        return\n",
+        "\n",
+        "    cracker_name = input(\"Enter the name of the cracker to get its price: \")\n",
+        "\n",
+        "    cracker_price = get_cracker_price(crackers, prices, cracker_name)\n",
+        "\n",
+        "    if cracker_price is not None:\n",
+        "        print(f\"The price of {cracker_name} is: {cracker_price}\")\n",
+        "    else:\n",
+        "        print(f\"Sorry, {cracker_name} is not found in the list of crackers.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "cZkd2VHfZlWe"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-7**"
+      ],
+      "metadata": {
+        "id": "ec0aD5b9dgGE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "laptop_specifications = {\n",
+        "    \"Dell\": \"Core i5, 8GB RAM, 256GB SSD\",\n",
+        "    \"HP\": \"Core i7, 16GB RAM, 512GB SSD\",\n",
+        "    \"Lenovo\": \"Ryzen 5, 12GB RAM, 1TB HDD\",\n",
+        "    \"Apple\": \"M1 Chip, 16GB RAM, 512GB SSD\",\n",
+        "}\n",
+        "\n",
+        "def display_laptop_specifications(company_name):\n",
+        "    company_name = company_name.title()\n",
+        "\n",
+        "    if company_name in laptop_specifications:\n",
+        "        print(f\"Specifications for {company_name}:\\n{Laptop_specifications[company_name]}\")\n",
+        "    else:\n",
+        "        print(f\"Sorry, {company_name} is not found in the list of laptop companies.\")\n",
+        "\n",
+        "def main():\n",
+        "    company_name = input(\"Enter the name of the laptop company: \")\n",
+        "\n",
+        "    display_laptop_specifications(company_name)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "8WKhjFfKdpt-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-8**"
+      ],
+      "metadata": {
+        "id": "TkRD6XEdd5k_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def find_different_characters(original_str, reversed_str):\n",
+        "    diff_count = 0\n",
+        "\n",
+        "    for i in range(len(original_str)):\n",
+        "        if original_str[i] != reversed_str[i]:\n",
+        "            diff_count += 1\n",
+        "\n",
+        "    return diff_count\n",
+        "\n",
+        "def main():\n",
+        "    input_str = input(\"Enter a string: \")\n",
+        "\n",
+        "    reversed_str = input_str[::-1]\n",
+        "\n",
+        "    differences = find_different_characters(input_str, reversed_str)\n",
+        "\n",
+        "    print(f\"Original string: {input_str}\")\n",
+        "    print(f\"Reversed string: {reversed_str}\")\n",
+        "    print(f\"Number of places where characters are different: {differences}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "g3fWAlvJd-Wc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-9**"
+      ],
+      "metadata": {
+        "id": "Af6WQzNHeMkg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def find_middle_characters(input_str):\n",
+        "    length = len(input_str)\n",
+        "\n",
+        "    if length % 2 == 0:\n",
+        "        middle_left = length // 2 - 1\n",
+        "        middle_right = length // 2\n",
+        "        result = input_str[middle_left:middle_right + 1]\n",
+        "    else:\n",
+        "        middle = length // 2\n",
+        "        result = input_str[middle]\n",
+        "\n",
+        "    return result\n",
+        "\n",
+        "def main():\n",
+        "    input_str = input(\"Enter a string: \")\n",
+        "\n",
+        "    result = find_middle_characters(input_str)\n",
+        "\n",
+        "    if len(input_str) % 2 == 0:\n",
+        "        print(f\"The two middle characters are: {result}\")\n",
+        "    else:\n",
+        "        print(f\"The single middle character is: {result}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "JMR8fkkreUp-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-10**"
+      ],
+      "metadata": {
+        "id": "jr-mCJbZgJ8L"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def perform_calculation(num1, num2, operator):\n",
+        "    if operator == '+':\n",
+        "        return num1 + num2\n",
+        "    elif operator == '-':\n",
+        "        return num1 - num2\n",
+        "    elif operator == '*':\n",
+        "        return num1 * num2\n",
+        "    elif operator == '/':\n",
+        "        if num2 != 0:\n",
+        "            return num1 / num2\n",
+        "        else:\n",
+        "            return \"Error: Division by zero is not allowed.\"\n",
+        "    else:\n",
+        "        return \"Error: Invalid operator. Please use '+', '-', '*', or '/'.\"\n",
+        "\n",
+        "def main():\n",
+        "    try:\n",
+        "        num1 = float(input(\"Enter the first number: \"))\n",
+        "        num2 = float(input(\"Enter the second number: \"))\n",
+        "    except ValueError:\n",
+        "        print(\"Error: Please enter valid numbers.\")\n",
+        "        return\n",
+        "\n",
+        "    operator = input(\"Enter the operator (+, -, *, /): \")\n",
+        "\n",
+        "    if not (operator in ['+', '-', '*', '/']):\n",
+        "        print(\"Error: Invalid operator. Please use '+', '-', '*', or '/'.\")\n",
+        "        return\n",
+        "\n",
+        "    result = perform_calculation(num1, num2, operator)\n",
+        "\n",
+        "    print(f\"Result of {num1} {operator} {num2} is: {result}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "HpoIxIyngQFD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-11**\n",
+        "   "
+      ],
+      "metadata": {
+        "id": "W_I6_ch-ggOJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def check_and_add_students(assignment_list, project_list, students):\n",
+        "    for student in students:\n",
+        "        if student not in assignment_list and student not in project_list:\n",
+        "            project_list.append(student)\n",
+        "\n",
+        "def main():\n",
+        "    assignment = [\"John\", \"Alice\", \"Bob\", \"Eva\"]\n",
+        "\n",
+        "    project = []\n",
+        "\n",
+        "    students_input = input(\"Enter names of students (comma-separated): \").split(',')\n",
+        "\n",
+        "    check_and_add_students(assignment, project, students_input)\n",
+        "\n",
+        "    print(\"\\nStudents in the Assignment List:\")\n",
+        "    print(assignment)\n",
+        "\n",
+        "    print(\"\\nStudents in the Project List:\")\n",
+        "    print(project)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "zJR0U8R7gkJr"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-12**"
+      ],
+      "metadata": {
+        "id": "Wls-aFbpguQs"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def get_guitar_model(type_of_guitar, color):\n",
+        "    guitar_models = {\n",
+        "        (\"Acoustic\", \"Natural\"): \"A100\",\n",
+        "        (\"Electric\", \"Sunburst\"): \"E200\",\n",
+        "        (\"Bass\", \"Black\"): \"B300\",\n",
+        "    }\n",
+        "\n",
+        "    # Convert input to title case for case-insensitive matching\n",
+        "    type_of_guitar = type_of_guitar.title()\n",
+        "    color = color.title()\n",
+        "\n",
+        "    # Check if the combination of type and color is in the dictionary\n",
+        "    if (type_of_guitar, color) in guitar_models:\n",
+        "        return guitar_models[(type_of_guitar, color)]\n",
+        "    else:\n",
+        "        return \"Model number not available for the given type and color.\"\n",
+        "\n",
+        "def main():\n",
+        "    # Take input from the user\n",
+        "    type_of_guitar = input(\"Enter the type of guitar: \")\n",
+        "    color = input(\"Enter the color of the guitar: \")\n",
+        "\n",
+        "    # Get the guitar model based on input\n",
+        "    model_number = get_guitar_model(type_of_guitar, color)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(f\"The model number for a {color} {type_of_guitar} guitar is: {model_number}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "As3VU8yWgzRw"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-13**\n",
+        "   "
+      ],
+      "metadata": {
+        "id": "UywuilsdhA5Z"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_total_score(ones, twos, fours, sixes):\n",
+        "    return ones + (2 * twos) + (4 * fours) + (6 * sixes)\n",
+        "\n",
+        "def main():\n",
+        "    # Take input for the number of players\n",
+        "    num_players = int(input(\"Enter the number of players: \"))\n",
+        "\n",
+        "    # Initialize lists to store player names and scores\n",
+        "    player_names = []\n",
+        "    player_scores = []\n",
+        "\n",
+        "    # Take input for player names and scores\n",
+        "    for i in range(num_players):\n",
+        "        name = input(f\"Enter the name of player {i + 1}: \")\n",
+        "        ones = int(input(f\"Enter the number of ones scored by {name}: \"))\n",
+        "        twos = int(input(f\"Enter the number of twos scored by {name}: \"))\n",
+        "        fours = int(input(f\"Enter the number of fours scored by {name}: \"))\n",
+        "        sixes = int(input(f\"Enter the number of sixes scored by {name}: \"))\n",
+        "\n",
+        "        # Calculate the total score for each player\n",
+        "        total_score = calculate_total_score(ones, twos, fours, sixes)\n",
+        "\n",
+        "        # Append player name and total score to the lists\n",
+        "        player_names.append(name)\n",
+        "        player_scores.append(total_score)\n",
+        "\n",
+        "    # Display the total score for each player\n",
+        "    print(\"\\nTotal Scores:\")\n",
+        "    for i in range(num_players):\n",
+        "        print(f\"{player_names[i]}: {player_scores[i]}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "r_bVc7XxhEF5"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "VGP2ppve6Meb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-14**"
+      ],
+      "metadata": {
+        "id": "9w3bsXpNhSss"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def count_characters_and_numbers(sentence):\n",
+        "    # Initialize counters for characters and numbers\n",
+        "    char_count = 0\n",
+        "    num_count = 0\n",
+        "\n",
+        "    # Iterate through each character in the sentence\n",
+        "    for char in sentence:\n",
+        "        if char.isalpha():\n",
+        "            # Increment the character count for alphabets\n",
+        "            char_count += 1\n",
+        "        elif char.isdigit():\n",
+        "            # Increment the number count for digits\n",
+        "            num_count += 1\n",
+        "\n",
+        "    return char_count, num_count\n",
+        "\n",
+        "def main():\n",
+        "    # Take input from the user\n",
+        "    sentence = input(\"Enter a sentence: \")\n",
+        "\n",
+        "    # Count characters and numbers in the sentence\n",
+        "    char_count, num_count = count_characters_and_numbers(sentence)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(f\"\\nNumber of characters: {char_count}\")\n",
+        "    print(f\"Number of numbers: {num_count}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "-XAYt6BwhTEo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  **Problem-15**"
+      ],
+      "metadata": {
+        "id": "QaASCt91hjuk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def convert_letters_after_fullstop(paragraph):\n",
+        "    # Split the paragraph into sentences\n",
+        "    sentences = paragraph.split('.')\n",
+        "\n",
+        "    # Process each sentence\n",
+        "    for i in range(len(sentences)):\n",
+        "        # Skip empty sentences\n",
+        "        if sentences[i].strip() == \"\":\n",
+        "            continue\n",
+        "\n",
+        "        # Find the first non-space character after the full stop\n",
+        "        j = 0\n",
+        "        while j < len(sentences[i]) and sentences[i][j].isspace():\n",
+        "            j += 1\n",
+        "\n",
+        "        # Convert the letters after the full stop to uppercase\n",
+        "        sentences[i] = sentences[i][:j] + sentences[i][j:].upper()\n",
+        "\n",
+        "    # Join the modified sentences back into a paragraph\n",
+        "    modified_paragraph = '.'.join(sentences)\n",
+        "\n",
+        "    return modified_paragraph\n",
+        "\n",
+        "def main():\n",
+        "    # Take input from the user\n",
+        "    paragraph = input(\"Enter a paragraph: \")\n",
+        "\n",
+        "    # Convert letters after full stop to uppercase\n",
+        "    modified_paragraph = convert_letters_after_fullstop(paragraph)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(\"\\nModified Paragraph:\")\n",
+        "    print(modified_paragraph)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "Iva9cSIshkHe"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "***Problem-16***"
+      ],
+      "metadata": {
+        "id": "iFzcwu5Wh391"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_interest(loan_type, loan_amount):\n",
+        "    # Dictionary mapping loan types to interest rates\n",
+        "    interest_rates = {\n",
+        "        \"Home Loan\": 0.05,  # 5%\n",
+        "        \"Car Loan\": 0.08,   # 8%\n",
+        "        \"Personal Loan\": 0.1  # 10%\n",
+        "        # Add more loan types and interest rates as needed\n",
+        "    }\n",
+        "\n",
+        "    # Check if the loan type is in the dictionary\n",
+        "    if loan_type in interest_rates:\n",
+        "        interest_rate = interest_rates[loan_type]\n",
+        "        interest_amount = loan_amount * interest_rate\n",
+        "        return interest_amount\n",
+        "    else:\n",
+        "        return \"Error: Invalid loan type. Please choose from Home Loan, Car Loan, or Personal Loan.\"\n",
+        "\n",
+        "def main():\n",
+        "    # Take input from the user for the type of loan\n",
+        "    loan_type = input(\"Enter the type of loan (Home Loan, Car Loan, Personal Loan): \")\n",
+        "\n",
+        "    # Take input from the user for the loan amount\n",
+        "    try:\n",
+        "        loan_amount = float(input(\"Enter the loan amount: \"))\n",
+        "    except ValueError:\n",
+        "        print(\"Error: Please enter a valid loan amount.\")\n",
+        "        return\n",
+        "\n",
+        "    # Calculate and display the amount of interest to be paid\n",
+        "    interest_amount = calculate_interest(loan_type, loan_amount)\n",
+        "    print(f\"\\nThe amount of interest to be paid for the {loan_type} is: {interest_amount:.2f}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "5rGluVTqh4UT"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-17**"
+      ],
+      "metadata": {
+        "id": "gZFPPW1uiOP8"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "\n",
+        "def check_for_url(paragraph):\n",
+        "    # Regular expression to find URLs\n",
+        "    url_pattern = re.compile(r'https?://\\S+|www\\.\\S+')\n",
+        "\n",
+        "    # Use findall() to find all URLs in the paragraph\n",
+        "    urls_found = re.findall(url_pattern, paragraph)\n",
+        "\n",
+        "    # Check if any URLs were found and print the result\n",
+        "    if urls_found:\n",
+        "        print(\"YES\")\n",
+        "    else:\n",
+        "        print(\"NO\")\n",
+        "\n",
+        "def main():\n",
+        "    # Take input from the user\n",
+        "    paragraph = input(\"Enter a paragraph: \")\n",
+        "\n",
+        "    # Check for URLs in the paragraph and print the result\n",
+        "    check_for_url(paragraph)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "BNOkcdYmiOnV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-18**"
+      ],
+      "metadata": {
+        "id": "83tA1sjEigkR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Sample list with some data and empty lists\n",
+        "data_list = [1, 2, [], 3, [], 4, [], []]\n",
+        "\n",
+        "# Use list comprehension to remove empty lists\n",
+        "filtered_list = [item for item in data_list if item]\n",
+        "\n",
+        "# Display the result\n",
+        "print(\"Original List:\", data_list)\n",
+        "print(\"List after removing empty lists:\", filtered_list)\n"
+      ],
+      "metadata": {
+        "id": "u2QbkvlYig-z"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-19**"
+      ],
+      "metadata": {
+        "id": "Xj1mCNA0iyi0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def update_instagram_id(user_dict, full_name, instagram_id):\n",
+        "    # Update the dictionary with the new Instagram ID\n",
+        "    user_dict[full_name] = instagram_id\n",
+        "\n",
+        "def main():\n",
+        "    # Sample dictionary with full names as keys and Instagram IDs as values\n",
+        "    instagram_users = {\n",
+        "        \"John Doe\": \"john_doe123\",\n",
+        "        \"Alice Smith\": \"alice_smith456\",\n",
+        "        \"Bob Johnson\": \"bob_johnson789\"\n",
+        "        # Add more users as needed\n",
+        "    }\n",
+        "\n",
+        "    # Take input from the user\n",
+        "    full_name = input(\"Enter the full name of the user: \")\n",
+        "    instagram_id = input(\"Enter the Instagram ID for the user: \")\n",
+        "\n",
+        "    # Update the dictionary with the new Instagram ID\n",
+        "    update_instagram_id(instagram_users, full_name, instagram_id)\n",
+        "\n",
+        "    # Display the updated dictionary\n",
+        "    print(\"\\nUpdated Instagram User Dictionary:\")\n",
+        "    for user, user_id in instagram_users.items():\n",
+        "        print(f\"{user}: {user_id}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "KxtTpHK_i2xY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  **Problem-20**"
+      ],
+      "metadata": {
+        "id": "g-fVZQZGjBhh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_discount(total_purchase_amount):\n",
+        "    if total_purchase_amount <= 2000:\n",
+        "        return 0\n",
+        "    elif 2000 < total_purchase_amount <= 3000:\n",
+        "        return 0.05 * total_purchase_amount\n",
+        "    elif 3000 < total_purchase_amount <= 5000:\n",
+        "        return 0.10 * total_purchase_amount\n",
+        "    else:\n",
+        "        return 0.15 * total_purchase_amount\n",
+        "\n",
+        "def main():\n",
+        "    # Sample dictionary with products as keys and prices as values\n",
+        "    product_prices = {\n",
+        "        \"Product1\": 1500,\n",
+        "        \"Product2\": 2200,\n",
+        "        \"Product3\": 3500,\n",
+        "        # Add more products and prices as needed\n",
+        "    }\n",
+        "\n",
+        "    # Calculate the total purchase amount\n",
+        "    total_purchase_amount = sum(product_prices.values())\n",
+        "\n",
+        "    # Calculate the discount\n",
+        "    discount = calculate_discount(total_purchase_amount)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(\"\\nProduct Prices:\")\n",
+        "    for product, price in product_prices.items():\n",
+        "        print(f\"{product}: ${price:.2f}\")\n",
+        "\n",
+        "    print(f\"\\nTotal Purchase Amount: ${total_purchase_amount:.2f}\")\n",
+        "    print(f\"Discount Applied: ${discount:.2f}\")\n",
+        "    print(f\"Total Amount After Discount: ${total_purchase_amount - discount:.2f}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "pPB839RbjBz6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-21**"
+      ],
+      "metadata": {
+        "id": "NV3Rsw2vjbQ5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def merge_and_sort_dicts(dict_a, dict_b):\n",
+        "    # Merge dictionaries for section A and section B\n",
+        "    merged_dict = dict_a.copy()\n",
+        "    merged_dict.update(dict_b)\n",
+        "\n",
+        "    # Sort the merged dictionary by values\n",
+        "    sorted_dict = dict(sorted(merged_dict.items(), key=lambda item: item[1]))\n",
+        "\n",
+        "    return sorted_dict\n",
+        "\n",
+        "def main():\n",
+        "    # Sample dictionaries for section A and section B\n",
+        "    section_a = {\"John\": 101, \"Alice\": 102, \"Bob\": 103}\n",
+        "    section_b = {\"Eva\": 201, \"Charlie\": 202, \"David\": 203}\n",
+        "\n",
+        "    # Merge and sort dictionaries\n",
+        "    sorted_merged_dict = merge_and_sort_dicts(section_a, section_b)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(\"\\nMerged and Sorted Dictionary:\")\n",
+        "    for student, roll_no in sorted_merged_dict.items():\n",
+        "        print(f\"{student}: {roll_no}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "1EVmLK6hjgPU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-22**"
+      ],
+      "metadata": {
+        "id": "8fJ5PScljytj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def sort_listed_candidates(criteria_dict, candidate_data):\n",
+        "    # Initialize an empty list to store the names of candidates who meet the criteria\n",
+        "    eligible_candidates = []\n",
+        "\n",
+        "    # Check each candidate's data against the criteria\n",
+        "    for name, data in candidate_data.items():\n",
+        "        if all(data[key] >= criteria_dict[key] for key in criteria_dict):\n",
+        "            eligible_candidates.append(name)\n",
+        "\n",
+        "    # Sort the list of eligible candidates\n",
+        "    sorted_eligible_candidates = sorted(eligible_candidates)\n",
+        "\n",
+        "    return sorted_eligible_candidates\n",
+        "\n",
+        "def main():\n",
+        "    # Dictionary containing necessary criteria (height, weight, eyesight)\n",
+        "    criteria = {\"height\": 160, \"weight\": 50, \"eyesight\": 6}\n",
+        "\n",
+        "    # Dictionary containing candidate data (name, height, weight, eyesight)\n",
+        "    candidates = {\n",
+        "        \"John\": {\"height\": 165, \"weight\": 55, \"eyesight\": 5.5},\n",
+        "        \"Alice\": {\"height\": 155, \"weight\": 45, \"eyesight\": 6.5},\n",
+        "        \"Bob\": {\"height\": 170, \"weight\": 60, \"eyesight\": 5.8}\n",
+        "        # Add more candidates and their data as needed\n",
+        "    }\n",
+        "\n",
+        "    # Get the sorted list of eligible candidates\n",
+        "    eligible_candidates = sort_listed_candidates(criteria, candidates)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(\"\\nSorted List of Eligible Candidates:\")\n",
+        "    for candidate in eligible_candidates:\n",
+        "        print(candidate)\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "sgTaUPULj3pE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  **Problem-23**"
+      ],
+      "metadata": {
+        "id": "pmfoONiekDbQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from datetime import datetime\n",
+        "\n",
+        "def check_expiry(products):\n",
+        "    current_date = datetime.now().date()\n",
+        "\n",
+        "    expired_products = []\n",
+        "\n",
+        "    for product, expiry_date in products.items():\n",
+        "        if expiry_date < current_date:\n",
+        "            expired_products.append(product)\n",
+        "\n",
+        "    return expired_products\n",
+        "\n",
+        "def main():\n",
+        "    # Dictionary to store product names and their expiry dates\n",
+        "    inventory = {\n",
+        "        \"Product1\": datetime(2023, 12, 31),\n",
+        "        \"Product2\": datetime(2023, 11, 15),\n",
+        "        \"Product3\": datetime(2023, 10, 1),\n",
+        "        # Add more products and expiry dates as needed\n",
+        "    }\n",
+        "\n",
+        "    # Take input from the user for a new product\n",
+        "    new_product = input(\"Enter the name of the new product: \")\n",
+        "    expiry_date_input = input(\"Enter the expiry date of the new product (YYYY-MM-DD): \")\n",
+        "\n",
+        "    try:\n",
+        "        expiry_date = datetime.strptime(expiry_date_input, \"%Y-%m-%d\").date()\n",
+        "        inventory[new_product] = expiry_date\n",
+        "    except ValueError:\n",
+        "        print(\"Invalid date format. Please use YYYY-MM-DD.\")\n",
+        "\n",
+        "    # Check for expired products\n",
+        "    expired_products = check_expiry(inventory)\n",
+        "\n",
+        "    # Display the result\n",
+        "    print(\"\\nExpired Products:\")\n",
+        "    if expired_products:\n",
+        "        for product in expired_products:\n",
+        "            print(f\"{product} - Expired\")\n",
+        "    else:\n",
+        "        print(\"No expired products.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "U6fSXIfSkHld"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "  **Problem-24**"
+      ],
+      "metadata": {
+        "id": "FCiBbjQZkYbh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_bmi(weight, height):\n",
+        "    # Formula to calculate BMI: weight (kg) / (height (m) * height (m))\n",
+        "    bmi = weight / (height ** 2)\n",
+        "    return bmi\n",
+        "\n",
+        "def main():\n",
+        "    try:\n",
+        "        # Take input from the user for weight and height\n",
+        "        weight = float(input(\"Enter weight in kilograms: \"))\n",
+        "        height = float(input(\"Enter height in meters: \"))\n",
+        "\n",
+        "        # Check for valid input\n",
+        "        if weight <= 0 or height <= 0:\n",
+        "            print(\"Error: Weight and height must be positive numbers.\")\n",
+        "        else:\n",
+        "            # Calculate BMI\n",
+        "            bmi = calculate_bmi(weight, height)\n",
+        "\n",
+        "            # Display the result\n",
+        "            print(\"\\nBody Mass Index (BMI): {:.2f}\".format(bmi))\n",
+        "    except ValueError:\n",
+        "        print(\"Error: Please enter valid numerical values for weight and height.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "jejM4dZekdQT"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "   **Problem-25**"
+      ],
+      "metadata": {
+        "id": "Q51XGAW-lfmW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_focal_length(object_distance, image_distance):\n",
+        "    # Formula for lens equation: 1/f = 1/object_distance + 1/image_distance\n",
+        "    focal_length_inverse = 1 / object_distance + 1 / image_distance\n",
+        "    focal_length = 1 / focal_length_inverse\n",
+        "    return focal_length\n",
+        "\n",
+        "def calculate_power(focal_length):\n",
+        "    # Formula for power: P = 1/f\n",
+        "    power = 1 / focal_length\n",
+        "    return power\n",
+        "\n",
+        "def lens_type(focal_length):\n",
+        "    # Determine the type of lens based on the focal length\n",
+        "    if focal_length > 0:\n",
+        "        return \"Convex Lens\"\n",
+        "    elif focal_length < 0:\n",
+        "        return \"Concave Lens\"\n",
+        "    else:\n",
+        "        return \"Invalid\"\n",
+        "\n",
+        "def main():\n",
+        "    try:\n",
+        "        # Take input from the user for object distance and image distance\n",
+        "        object_distance = float(input(\"Enter object distance in meters: \"))\n",
+        "        image_distance = float(input(\"Enter image distance in meters: \"))\n",
+        "\n",
+        "        # Calculate focal length\n",
+        "        focal_length = calculate_focal_length(object_distance, image_distance)\n",
+        "\n",
+        "        # Calculate power\n",
+        "        power = calculate_power(focal_length)\n",
+        "\n",
+        "        # Determine the type of lens\n",
+        "        lens_type_result = lens_type(focal_length)\n",
+        "\n",
+        "        # Display the result\n",
+        "        print(\"\\nFocal Length: {:.2f} meters\".format(focal_length))\n",
+        "        print(\"Power of the Lens: {:.2f} diopters\".format(power))\n",
+        "        print(\"Lens Type: {}\".format(lens_type_result))\n",
+        "    except ValueError:\n",
+        "        print(\"Error: Please enter valid numerical values for object distance and image distance.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "fmvRNAcUlje2"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
